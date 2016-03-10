@@ -1,0 +1,6 @@
+<strong>Select your name</strong>
+
+<%= form_tag '/signin' do %>
+  <p><%= select_tag "user[id]", options_from_collection_for_select(User.all, :id, :name) %></p>
+  <%= submit_tag "Sign In" %>
+<% end %>

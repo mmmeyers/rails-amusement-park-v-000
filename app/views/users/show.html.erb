@@ -1,0 +1,11 @@
+<h3><% if @user.admin? %>
+  <%= "ADMIN" %>
+<% end %>
+</h3>
+<strong>Name:</strong> <%= @user.name %><br>
+<strong>Tickets:</strong> <%= @user.tickets %><br>
+<strong>Height:</strong> <%= @user.height %><br>
+<strong>Mood:</strong> <%= @user.mood %><br>
+
+<h4><%= link_to "See attractions", attractions_path %></h4>
+<h4><%= link_to "Log Out", signout_path, :method => :delete %></h4>

@@ -1,0 +1,17 @@
+<h2>Attractions</h2>
+<% @attractions.each do |attraction| %>
+  <% if current_user.admin? %>
+    <li><%= link_to "Show #{attraction.name}", attraction_path(attraction) %></li>
+    <li><%= link_to "Create new attraction", new_attraction_path %></li>
+  <% else %>
+    <li><%= link_to "Go on #{attraction.name}", attraction_path(attraction) %>
+  <% end %>
+
+  <li>Tickets: <%= attraction.tickets %></li>
+  <li>Height requirement: <%= attraction.min_height %></li>
+  <li>Nausea rating: <%= attraction.nausea_rating %></li>
+  <li>Happiness rating: <%= attraction.happiness_rating %></li>
+<% end %>
+
+<h4><%= link_to "New Attraction", new_attraction_path %></h4>
+<h4><%= link_to "Log out", signout_path, method: :destroy %></h4>
